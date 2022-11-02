@@ -85,4 +85,16 @@ X, y = make_blobs(n_samples=100, centers=2,
 plt.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
 ```
 * 점을 랜덤으로 생성하는 package를 통해서 sample의 갯수, 종류, 점들의 분산을 설정함 
-* scatter을 통해 
+* scatter을 통해 x축,y축을 설정하고 s를 통해 원의 크기를 설정함
+    
+   <p align="center"><img width="376" alt="image" src="https://user-images.githubusercontent.com/97882448/199447796-c6710161-d63e-4b12-a561-9956adb405f7.png">
+  
+```python
+ xfit = np.linspace(7.8, 11)
+plt.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
+#보라색과 빨간색 사이를 마구잡이로 경계를 그었음
+for m, b in [(-0.5, 7.9), (0.53, -2.8), (-0.09, 3.4)]:
+    plt.plot(xfit, m * xfit + b, '--')
+
+plt.xlim(7.8, 11);
+```
