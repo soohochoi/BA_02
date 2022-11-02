@@ -61,3 +61,14 @@ SVM은 쉽게 이야기하면 선형 분류기(=선형으로 분리됨)이며 �
 그럼 지금까지 배웠던 내용을 가지고 실습을 해보는 시간을 가지도록하겠습니다. 
     
  ## BA_02 Support Vector Machines (SVM)_실습코드 
+
+먼저 제가 만들었던 SVM 실습코드를 
+
+```python
+%matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+# use seaborn plotting defaults
+import seaborn as sns; sns.set()
+```
