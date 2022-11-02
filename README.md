@@ -75,5 +75,14 @@ import seaborn as sns; sns.set()
 ```
 * 먼저 SVM 그림을 만들때 사용한 패키지입니다. 
     
-
-
+```python
+#점을 생성하는 package를 불러옴
+from sklearn.datasets import make_blobs
+# 점을 생성하는  sample의 갯수,centers는 종류, cluster_std는 점들의 분산 정도임
+X, y = make_blobs(n_samples=100, centers=2,
+                  random_state=4, cluster_std=0.4)
+#x,y축 그래프를 만드는데 s는 점의 크기를 결정하고 c=y를 통해 2개의 색깔을 fix 시킴
+plt.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
+```
+* 점을 랜덤으로 생성하는 package를 통해서 sample의 갯수, 종류, 점들의 분산을 설정함 
+* scatter을 통해 
