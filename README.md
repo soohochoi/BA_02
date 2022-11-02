@@ -62,7 +62,7 @@ SVM은 쉽게 이야기하면 선형 분류기(=선형으로 분리됨)이며 �
     
  ## BA_02 Support Vector Machines (SVM)_실습코드 
 
-먼저 SVM 그림을 만들어보겠습니다. 
+### 1. SVM 그림 만들기
 
 ```python
 #package를 통해 불러옴
@@ -85,7 +85,7 @@ X, y = make_blobs(n_samples=100, centers=2,
 plt.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
 ```
 * 점을 랜덤으로 생성하는 package를 통해서 sample의 갯수, 종류, 점들의 분산을 설정함 
-* scatter을 통해 x축,y축을 설정하고 s를 통해 원의 크기를 설정함
+* scatter을 통해 x축,y축을 설정하고 s를 통해 원의 크기를 설정하면 아래의 그림처럼 plot이 생성됨
     
    <p align="center"><img width="376" alt="image" src="https://user-images.githubusercontent.com/97882448/199447796-c6710161-d63e-4b12-a561-9956adb405f7.png">
   
@@ -98,3 +98,36 @@ for m, b in [(-0.5, 7.9), (0.53, -2.8), (-0.09, 3.4)]:
 
 plt.xlim(7.8, 11);
 ```
+* 일차함수를 설정해주어 점들사이의 점선들을 그어줌
+
+   <p align="center"><img width="382" alt="image" src="https://user-images.githubusercontent.com/97882448/199452078-db81ae55-4fe6-438a-b2b0-5ff3148d9445.png">
+
+```python
+xfit = np.linspace(7.8, 11)
+#가로열과 세로열을 뿌림
+
+plt.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
+
+for m, b, d in [(-0.5, 7.9, 0.13), (0.53, -2.8, 0.05), (-0.09, 3.4, 0.7)]:
+    yfit = m * xfit + b
+    plt.plot(xfit, m * xfit + b, '--')
+    #fill_between을 통해서 마진을 표시해봄
+    plt.fill_between(xfit, yfit - d, yfit + d, edgecolor='none',
+                     color='#AAAAAA', alpha=0.4)
+
+plt.xlim(7.8, 11);
+```
+*fill_between을 통해서 마진을 표시하였음
+
+   <p align="center"><img width="393" alt="image" src="https://user-images.githubusercontent.com/97882448/199452173-31512bd7-8460-495c-a096-68a502d5f3ed.png">
+
+
+### 2. sklean을 통한 SVM
+
+```python
+from sklearn.svm import SVC
+#SVM 모듈
+model = SVC(kernel='linear', C=1E6, gamma=0.01)
+model.fit(X, y)
+```
+* 모듈을 통해 SVM을 만들고 keenal은 선형으로 설정하였음 C는 cost를 뜻하는데 C는 얼마나 많은 데이터 샘플이 다른 클래스에 놓이는 지에 대해 허용하는지에 대해 결정한다. 즉, 작을 수록 많이 허용하고, 클 수록 적게 허용한다. 다른 말로, C값을 낮게 설정하면 이상치들이 있을 가능성을 크게 잡아 일반적인 결정 경계를 찾아내고, 높게 설정하면 반대로 이상치의 존재 가능성을 작게 봐서 좀 더 세심하게 결정 경계를 찾아낸다. "난 데이터 샘플하나도 잘못 분류할 수 없어!"라면 C를 높여야한다.
