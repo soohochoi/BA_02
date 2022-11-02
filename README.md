@@ -122,16 +122,54 @@ plt.xlim(7.8, 11);
    <p align="center"><img width="393" alt="image" src="https://user-images.githubusercontent.com/97882448/199452173-31512bd7-8460-495c-a096-68a502d5f3ed.png">
 
 
-### 2. sklean을 통한 SVM
+### 2. sklearn을 통한 SVM
 
 ```python
 from sklearn.svm import SVC
 #SVM 모듈
-model = SVC(kernel='linear', C=1E6, gamma=0.01)
+model = SVC(kernel='linear', C=1E6)
 model.fit(X, y)
+    
+def svc_decision_function(model, ax=None, plot_support=True):
+    #축과 관련된 것을 설정
+    if ax is None:
+        ax = plt.gca()
+    xlim = ax.get_xlim()
+    ylim = ax.get_ylim()
+    
+    # 평가할 모델의 그리드 설정
+    x = np.linspace(xlim[0], xlim[1], 30)
+    y = np.linspace(ylim[0], ylim[1], 30)
+    #meshgrid는 격자를 그리는 함수임
+    Y, X = np.meshgrid(y, x)
+    #ravel()은 다차원을 1차원으로 바꾸어준 후에 concat
+    xy = np.vstack([X.ravel(), Y.ravel()]).T
+    P = model.decision_function(xy).reshape(X.shape)
+    
+    # 마진과 decison boundary를 그려줌
+    ax.contour(X, Y, P, colors='k',
+               levels=[-1, 0, 1], alpha=0.7,
+               linestyles=['dashed' , 'solid', 'dashed'])
+    
+    # 서포트벡터 그리기
+    if plot_support:
+        ax.scatter(model.support_vectors_[:, 0],
+                   model.support_vectors_[:, 1],
+                   s=30, linewidth=1, facecolors='none');
+    ax.set_xlim(xlim)
+    ax.set_ylim(ylim)
+    
+    plt.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
+svc_decision_function(model);
 ```
 * 모듈을 통해 SVM을 만들고 keenal은 선형으로 설정하였음   
-* C는 cost를 뜻하는데 C는 얼마나 많은 데이터 샘플이 다른 클래스에 놓이는 지에 대해 허용하는지에 대해 결정함
-    * 즉, 작을 수록 많이 허용하고, 클 수록 적게 허용함
-    * C값을 낮게 설정하면 이상치들이 있을 가능성을 크게 잡아 일반적인 결정 경계를 찾아내고, 높게 설정하면 반대로 이상치의 존재 가능성을 작게 봐서 좀 더 세심하게 결정 경계를 찾아낸다. 
-    * 만약에 데이터 샘플을 하나도 잘못 분류할 수 없어!"라면 C를 높이면 된다.
+* C는 cost를 뜻함
+    * 즉, c가 작을 수록 이상치를 많이 허용하고, 클 수록 적게 허용함 
+    * C값을 낮게 설정하면 이상치들이 있을 가능성을 크게 잡아 일반적인 결정 경계를 찾아내고, 높게 설정하면 반대로 이상치의 존재 가능성을 작게 봐서 좀 더 세심하게 결정 경계를 찾아냄
+    * 그러므로 c가 작으면 Soft마진이고 c가 클수록 Hard마진이 생성된다.
+
+* C값이 1000000으로 설정했을때 그림
+    
+* C값이 10으로 설정했을때 그림
+
+* gamma는 
