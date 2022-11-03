@@ -24,7 +24,7 @@ SVM은 쉽게 이야기하면 선형 분류기(=선형으로 분리됨)이며 �
  <p align="center"><img width="250" alt="image" src="https://user-images.githubusercontent.com/97882448/199414674-169d3bd0-b51e-48b8-8cca-73dbcb7fa590.png"> 
    
 그래서 초평면과 마진이 무엇인지 쉽게 설명해보겠습니다.
- <p align="center"><img width="350" alt="image" src="https://user-images.githubusercontent.com/97882448/199418846-104a9b8a-a3c9-4385-86e8-865a1cbb6c83.png">
+ <p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/97882448/199418846-104a9b8a-a3c9-4385-86e8-865a1cbb6c83.png">
 
 * 초평면: 위의 그림처럼 그룹을 나누는 이상적인 평면(=직선)이라고 생각하시면 되겠습니다. 2차원일땐 직선으로 분류되고 3차원일땐 평면으로 분리가 됩니다. 
    
