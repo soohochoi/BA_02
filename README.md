@@ -190,7 +190,7 @@ svc_decision_function(model);
 
  <p align="center"><img width="371" alt="image" src="https://user-images.githubusercontent.com/97882448/199638187-97d70f9d-0940-4e7d-9392-3c1a4bbd592f.png">
 
- * ** 이번에는 random_state를 고정하고 분산도 고정한다음 sample의 수에 따른 마진이 어떻게 바뀌는 지에 대해서 한번 알아보고자 함** 
+ * **이번에는 random_state를 고정하고 분산도 고정한다음 sample의 수에 따른 마진이 어떻게 바뀌는 지에 대해서 한번 알아보고자 함** 
   * 생각을 해보면 sample의 수의 비례해서 마진이 작아질 것이라고 생각을 하였음 
   * sample의 갯수는 30, 60, 90, 120으로 설정하였음
   
