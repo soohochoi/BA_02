@@ -191,8 +191,15 @@ svc_decision_function(model);
     
      <p align="center"><img width="374" alt="image" src="https://user-images.githubusercontent.com/97882448/199634011-b487c10e-78da-4977-886e-aa8438a2825e.png">
 
-    * C값이 gamma값보다 더 크게 작용하여서 Hard마진 gamma를 0.1로 놓았을때랑 별차이가 없음을 알수있음
+    * C값이 gamma값보다 더 크게 작용하여서 Hard마진 gamma를 0.1로 놓았을때랑 별차이가 없음을 알수있음 - Hard마진이됨
       
-* C값이 0.1이고 gamma가 10을 설정했을때 그림
+* **C값이 0.1이고 gamma가 10을 설정했을때 그림**
+      * C값도 작고 gamma가 작으니 이상치에 작게 작용한 그림이여야한다고 유추할수 있음 - Soft마진이됨
   
-* C값이 0.1이고 gamma가 1000을 설정했을때 그림
+      <p align="center"><img width="369" alt="image" src="https://user-images.githubusercontent.com/97882448/199635029-4c15b3a2-a654-4530-a8ee-d9370af9a068.png">
+    
+       * Soft마진이됨
+       
+* **C값이 0.1이고 gamma가 1000을 설정했을때 그림**
+      * C값이 작지만 gamma가 크니 방금 위에 그림보다는 이상치에 좀더 작용한 그림이여야한다고 유추할수 있음
+       
