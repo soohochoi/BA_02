@@ -230,4 +230,36 @@ plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
     
    <p align="center"><img width="377" alt="image" src="https://user-images.githubusercontent.com/97882448/199640968-1f465925-658d-4e17-985d-bfb4101e2029.png">
 
-이점들을
+* 이점들을 커널트릭을 사용해서 분류하려면 2차원->3차원으로 변경해주어야함
+```python  
+from mpl_toolkits import mplot3d
+r = np.exp(-(X ** 2).sum(1))
+def plot_3D(elev=30, azim=30, X=X, y=y):
+    ax = plt.subplot(projection='3d')
+    ax.scatter3D(X[:, 0], X[:, 1], r, c=y, s=50, cmap='autumn')
+    ax.view_init(elev=elev, azim=azim)
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
+    ax.set_zlabel('r')
+
+interact(plot_3D, elev=[0, 90], azip=(-180, 180),
+         X=fixed(X), y=fixed(y));
+```
+    
+* 그러면 아래와 같이 3차원에서 분류가 되는것을 알수있음
+    
+   <p align="center"><img width="278" alt="image" src="https://user-images.githubusercontent.com/97882448/199641375-42638ebd-35b0-4ef3-a3e7-bd14f55a6b40.png">
+    
+* 그럼 위에서 rbf커널을 통해 어떻게 분류가 되는지 그리고 gamma(=1/sigma^2)값을 통한 마진의 변화를 알아보겠음
+
+```python
+clf = SVC(kernel='rbf', C=0.5,gamma=1)
+clf.fit(X, y)
+plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
+plot_svc_decision_function(clf)
+plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
+            s=300, lw=1, facecolors='none');
+```
+
+
+
