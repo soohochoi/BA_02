@@ -178,6 +178,7 @@ svc_decision_function(model);
 
  * ** 이번에는 random_state를 고정하고 분산도 고정한다음 sample의 수에 따른 마진이 어떻게 바뀌는 지에 대해서 한번 알아보고자 함** 
   * 생각을 해보면 sample의 수의 비례해서 마진이 작아질 것이라고 생각을 하였음 
+  * sample의 갯수는 30, 60, 90, 120으로 설정하였음
   
 ```python
 def plot_svm(N=10, ax=None):
@@ -201,3 +202,32 @@ for axi, N in zip(ax, [30, 60, 90, 120]):
     plot_svm(N, axi)
     axi.set_title('N = {0}'.format(N))
   ```
+*  **C가 1일때 여러sample의 그림**
+  
+   <p align="center"><img width="991" alt="image" src="https://user-images.githubusercontent.com/97882448/199639933-d169c0b0-0b93-4fde-a8a4-c56e0bc94be2.png">
+
+* **C가 1000일때 여러sample의 그림**
+    
+   <p align="center"><img width="991" alt="image" src="https://user-images.githubusercontent.com/97882448/199640105-cafddd23-1d83-4a48-9e39-ab0ca741fd4a.png">
+
+* 처음에 생각했던 것처럼 sample의 수가 많아질수록 마진의 폭이 좁혀지는것을 알수있음
+    
+
+
+### 3. 커널트릭을 사용한 비선형분류기
+
+Kernal trick을 사용하여 선형분류로 분류가 불가한 점을 분류하는 실습이다.
+    
+```python    
+#3차원은 선형커널로 분리가 되지 않음
+from sklearn.datasets import make_circles
+#점을 만들고 뿌렸을때 다음과 같이 이런 그래프는 선형분류로는 분류가 불가능함 factor는 0.1 점들의 분산인 노이즈는 0.15로 설정함
+X, y = make_circles(100, factor=.1, noise=.15)
+clf = SVC(kernel='linear').fit(X, y)
+plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
+```
+* 위의 코드를 실행하면 아래와 같이 직선으로는 분류할수 없는 점들이 나옴
+    
+   <p align="center"><img width="377" alt="image" src="https://user-images.githubusercontent.com/97882448/199640968-1f465925-658d-4e17-985d-bfb4101e2029.png">
+
+이점들을
