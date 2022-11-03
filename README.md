@@ -9,8 +9,14 @@
 
 ## 목차
 ### 1. [BA_02 Support Vector Machines (SVM)_개념설명](#ba_02-support-vector-machines-svm_개념설명)
-### 2. [BA_02 Support Vector Machines (SVM)_실습코드](#ba_02-support-vector-machines-svm_실습코드)
+#### 1.1 [Hard마진](#-hard마진)
+#### 1.2 [Soft마진](#-soft마진)
+#### 1.3 [Kernal trick](#-kernal-trick)
 
+### 2. [BA_02 Support Vector Machines (SVM)_실습코드](#ba_02-support-vector-machines-svm_실습코드)
+#### 2.1 [SVM 그림 만들기](#1-svm-그림-만들기)
+#### 2.2 [sklearn을 통한 SVM](#2-sklearn을-통한-svm)
+#### 2.3 [커널트릭을 사용한 비선형분류기](#3-커널트릭을-사용한-비선형분류기)
 
 ## BA_02 Support Vector Machines (SVM)_개념설명
 
@@ -58,7 +64,10 @@ SVM은 쉽게 이야기하면 선형 분류기(=선형으로 분리됨)이며 �
 
 위 식들을 푸는 방법은 제약식에 라그랑지안 승수를 곱함 -> 라그랑지안 Primal 문제로 바꿈 -> KKT condition을 통해 Dual문제로 바꿈 -> Solution을 푸는 방법은 tutorial보다 ppt설명에 넣는것이 맞는것 같아 이번시간 내용으론 제외 시켰습니다. 
 
-그럼 Hard마진도 알겠고 Soft마진도 알겠는데 SVM은 선형모델만 분류할수있는건가요? 물을수 있습니다. 현실에선 선형보다 비선형도 분류하는 밀도있고 복잡한 데이터가 많기때문입니다.    
+그럼 Hard마진도 알겠고 Soft마진도 알겠는데 SVM은 선형모델만 분류할수있는건가요? 물을수 있습니다. 현실에선 선형보다 비선형도 분류하는 밀도있고 복잡한 데이터가 많기때문입니다.   
+
+### * Kernal trick
+
 제가 자신있게 자문자답을 한 이유는 SVM은 비선형분류기도 가능하기 때문입니다. 그러면 어떻게 하면 될까요? 답은 Kernal trick을 통해서입니다. Kernal trick이란 원래공간이 아닌 선형분류가 가능한 더 고차원의 공간으로 데이터를 보내서 경계면을 설정하는 방법입니다. 아래의 그림을 참고하면 이해하는데 좀더 용이할것입니다.
   
    <p align="center"><img width="400" alt="image" src="https://user-images.githubusercontent.com/97882448/199435448-b67265bc-c8e6-4678-a114-5c17843e1c36.png">
