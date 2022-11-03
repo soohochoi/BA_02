@@ -127,7 +127,7 @@ plt.xlim(7.8, 11);
 ```python
 from sklearn.svm import SVC
 #SVM 모듈
-model = SVC(kernel='linear', C=1E6)
+model = SVC(kernel='linear', C=1E6, gamma=10)
 model.fit(X, y)
     
 def svc_decision_function(model, ax=None, plot_support=True):
@@ -162,14 +162,37 @@ def svc_decision_function(model, ax=None, plot_support=True):
     plt.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
 svc_decision_function(model);
 ```
-* 모듈을 통해 SVM을 만들고 keenal은 선형으로 설정하였음   
+* 모듈을 통해 SVM을 만들고 kernal은 선형으로 설정하였음   
 * C는 cost를 뜻함
     * 즉, c가 작을 수록 이상치를 많이 허용하고, 클 수록 적게 허용함 
     * C값을 낮게 설정하면 이상치들이 있을 가능성을 크게 잡아 일반적인 결정 경계를 찾아내고, 높게 설정하면 반대로 이상치의 존재 가능성을 작게 봐서 좀 더 세심하게 결정 경계를 찾아냄
     * 그러므로 c가 작으면 Soft마진이고 c가 클수록 Hard마진이 생성된다.
 
-* C값이 1000000으로 설정했을때 그림
+* **C값을 1000000으로 설정했을때 그림-Hard마진의 됨**
     
-* C값이 10으로 설정했을때 그림
+<p align="center"><img width="368" alt="image" src="https://user-images.githubusercontent.com/97882448/199461536-d15ea421-028f-4566-88d9-59ce154a30a9.png">
+  
+* **C값을 10으로 설정했을때 그림- Soft마진이 됨**
 
-* gamma는 
+ <p align="center"><img width="377" alt="image" src="https://user-images.githubusercontent.com/97882448/199461244-d49bba57-3bf0-46bf-b911-da05861e5871.png">
+
+* gamma는 1/(sigma)^2 를 뜻함
+  * gamma가 커질수록 이상치를 적게 허용하고 gamma가 작을수록 이상치를 크게 허용한다는 것을 알수있음
+  
+* **C값을 1000이고 gamma가 0.1을 설정했을때 그림**
+  * C값이 크고 gamma가 작으니 이상치에 크게 작용한 그림이여야한다고 유추할수 있음
+  
+   <p align="center"><img width="375" alt="image" src="https://user-images.githubusercontent.com/97882448/199632611-d7ade574-17ed-4ae5-ba43-8770381052c1.png">
+    
+  * Hard마진의 됨
+
+* **C값이 1000이고 gamma가 1000을 설정했을때 그림**
+    * C값이 크지만 gamma도 크니 이상치에 C값이 크게 작용할지 gamma가 크게 작용하여 이상치에 적게 반응할지 생각하고 그림을 볼수 있음
+    
+     <p align="center"><img width="374" alt="image" src="https://user-images.githubusercontent.com/97882448/199634011-b487c10e-78da-4977-886e-aa8438a2825e.png">
+
+    * C값이 gamma값보다 더 크게 작용하여서 Hard마진 gamma를 0.1로 놓았을때랑 별차이가 없음을 알수있음
+      
+* C값이 0.1이고 gamma가 10을 설정했을때 그림
+  
+* C값이 0.1이고 gamma가 1000을 설정했을때 그림
