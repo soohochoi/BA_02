@@ -261,6 +261,20 @@ plot_svc_decision_function(clf)
 plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
             s=300, lw=1, facecolors='none');
 ```
+   <p align="center"><img width="371" alt="image" src="https://user-images.githubusercontent.com/97882448/199648853-4c7c5b8a-cb00-44e1-9506-2ad854c425a8.png">
 
+* 그럼 이번엔 C값과 gamma값을 조정하여 보겠음 
 
+* **C값이 1이고 gamma값이 1일때**
+     <p align="center"><img width="373" alt="image" src="https://user-images.githubusercontent.com/97882448/199650209-dd16f9b1-e0d7-42fa-9e49-3ef5c1f2d6a8.png">
 
+ * **C값이 100이고 gamma값이 1일때**
+      <p align="center"><img width="377" alt="image" src="https://user-images.githubusercontent.com/97882448/199650265-ac225c92-5a9d-41cd-893e-c927290b2495.png">
+
+ * **C값이 1이고 gamma값이 0.5일때**
+       <p align="center"><img width="375" alt="image" src="https://user-images.githubusercontent.com/97882448/199650411-cc5ec947-543e-4575-9b18-9cdd482953bc.png">
+
+  * ****C값이 1이고 gamma값이 100일때**
+        <p align="center"><img width="380" alt="image" src="https://user-images.githubusercontent.com/97882448/199650456-6aee041a-4017-4143-b85b-7ba719433283.png">
+
+  * ****C값이 1이고 gamma값이 100일때**
