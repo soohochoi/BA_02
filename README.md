@@ -2,12 +2,17 @@
 
 <p align="center"><img width="467" alt="image" src="https://user-images.githubusercontent.com/97882448/199305047-75333530-7b59-4745-829b-c029a3cfbef5.png">
 
- ## BA_02 Support Vector Machines (SVM)_개념설명
-  
 이자료는 고려대학교 비니지스 애널리틱스 강필성교수님께 배운 Support Vector Machines을 바탕으로 만들어졌습니다.
 먼저, Support Vector Machines의 기본적인 개념에대해서 설명하고 Jupyter notebook을 통해 직접 구현을 해봄으로써 이해를 돕도록하겠습니다.
 또한, 여러가지 파라미터들을 변경해보면서 분류경계면이 바뀌는 것또한 확인해보겠습니다. 
-설명할때 통일성을 위해 Support Vector Machines을 SVM라고 명명하도록하겠습니다.
+설명할때 통일성을 위해 Support Vector Machines을 **SVM**라고 명명하도록하겠습니다.
+
+## 목차
+### 1. [BA_02 Support Vector Machines (SVM)_개념설명](#ba_02-support-vector-machines-svm_개념설명)
+### 2. [BA_02 Support Vector Machines (SVM)_실습코드](#ba_02-support-vector-machines-svm_실습코드)
+
+
+## BA_02 Support Vector Machines (SVM)_개념설명
 
 SVM은 쉽게 이야기하면 선형 분류기(=선형으로 분리됨)이며 데이터를 분류하는 최적의 선을 찾는것입니다. 조금 더 자세히 말하자면 초평면을 생성해 마진을 최대화하는 분류경계를 찾는 것입니다. 이말을 들으시면 SVM을 처음 공부하시는 분들은 아래의 말하는 감자그림처럼 초평면?, 마진? 이것이 무엇인지 궁금해지실겁니다. 
  <p align="center"><img width="250" alt="image" src="https://user-images.githubusercontent.com/97882448/199414674-169d3bd0-b51e-48b8-8cca-73dbcb7fa590.png"> 
@@ -60,7 +65,7 @@ SVM은 쉽게 이야기하면 선형 분류기(=선형으로 분리됨)이며 �
 
 그럼 지금까지 배웠던 내용을 가지고 실습을 해보는 시간을 가지도록하겠습니다. 
     
- ## BA_02 Support Vector Machines (SVM)_실습코드 
+## BA_02 Support Vector Machines (SVM)_실습코드 
 
 ### 1. SVM 그림 만들기
 
