@@ -262,7 +262,8 @@ interact(plot_3D, elev=[0, 90], azip=(-180, 180),
     
 * 그러면 아래와 같이 3차원에서 분류가 되는것을 알수있음
     
-   <p align="center"><img width="278" alt="image" src="https://user-images.githubusercontent.com/97882448/199641375-42638ebd-35b0-4ef3-a3e7-bd14f55a6b40.png">
+   <p align="center"><img width="350" alt="image" src="https://user-images.githubusercontent.com/97882448/199685774-16c897b6-01e3-4d00-a291-a6d5d646fe65.png">
+
     
 * 그럼 위에서 rbf커널을 통해 어떻게 분류가 되는지 그리고 gamma(=1/sigma^2)값을 통한 마진의 변화를 알아보겠음
     * gamma는? 쉽게 말해서 결정 경계의 곡률을 조정한다고 말할 수있음 gamma가 클수록 비선형에 민감하게 반응함
@@ -271,7 +272,7 @@ interact(plot_3D, elev=[0, 90], azip=(-180, 180),
 clf = SVC(kernel='rbf', C=0.5,gamma=1)
 clf.fit(X, y)
 plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='autumn')
-plot_svc_decision_function(clf)
+svc_decision_function(clf)
 plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
             s=300, lw=1, facecolors='none');
 ```
