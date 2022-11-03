@@ -164,7 +164,7 @@ svc_decision_function(model);
 ```
 * 모듈을 통해 SVM을 만들고 kernal은 선형으로 설정하였음   
 * C는 cost를 뜻함
-    * 즉, c가 작을 수록 이상치를 많이 허용하고, 클 수록 적게 허용함 
+    * 즉, C가 작을 수록 이상치를 많이 허용하고, 클 수록 적게 허용함 
     * C값을 낮게 설정하면 이상치들이 있을 가능성을 크게 잡아 일반적인 결정 경계를 찾아내고, 높게 설정하면 반대로 이상치의 존재 가능성을 작게 봐서 좀 더 세심하게 결정 경계를 찾아냄
     * 그러므로 c가 작으면 Soft마진이고 c가 클수록 Hard마진이 생성된다.
 
@@ -266,18 +266,24 @@ plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
 * 그럼 이번엔 C값과 gamma값을 조정하여 보겠음 
 
 * **C값이 1이고 gamma값이 1일때**
+    * C값이 작아서 데이터가 이상치를 많이 허용하니 분류경계면안에 데이터들(=Soft 마진)이 있음
      <p align="center"><img width="373" alt="image" src="https://user-images.githubusercontent.com/97882448/199650209-dd16f9b1-e0d7-42fa-9e49-3ef5c1f2d6a8.png">
 
  * **C값이 100이고 gamma값이 1일때**
+    * C값이 상대적으로 커서 데이터가 이상치를 허용하지 않아 Hard마진임
       <p align="center"><img width="377" alt="image" src="https://user-images.githubusercontent.com/97882448/199650265-ac225c92-5a9d-41cd-893e-c927290b2495.png">
 
  * **C값이 1이고 gamma값이 0.5일때**
+    * gamma값이 0.5라 비선형보단 선형으로 분류됨
        <p align="center"><img width="375" alt="image" src="https://user-images.githubusercontent.com/97882448/199650411-cc5ec947-543e-4575-9b18-9cdd482953bc.png">
 
-  * ****C값이 1이고 gamma값이 100일때**
+  * **C값이 1이고 gamma값이 100일때**
+     * gamma값이 10라 선형보단 비선형으로 분류됨
         <p align="center"><img width="380" alt="image" src="https://user-images.githubusercontent.com/97882448/199650456-6aee041a-4017-4143-b85b-7ba719433283.png">
+
+         
 
 ---
  ### Reference
  1. https://sustaining-starflower-aff.notion.site/2022-2-0e068bff3023401fa9fa13e96c0269d7 <강필성교수님 자료>
- 2. https://github.com/2black0/ <GA코드 참조>
+ 2. Jake VanderPlas [Python Data Science Handbook] 
