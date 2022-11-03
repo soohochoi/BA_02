@@ -193,7 +193,7 @@ def plot_svm(N=10, ax=None):
     ax.scatter(X[:, 0], X[:, 1], c=y, s=30, cmap='rainbow')
     ax.set_xlim(7.8, 11)
     ax.set_ylim(-1, 6)
-    plot_svc_decision_function(model, ax)
+    svc_decision_function(model, ax)
 
 #4개의 subplot으로 작성함
 fig, ax = plt.subplots(1, 4, figsize=(16, 6))
@@ -280,9 +280,6 @@ plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
   * **C값이 1이고 gamma값이 100일때**
      * gamma값이 10라 선형보단 비선형으로 분류됨
         <p align="center"><img width="380" alt="image" src="https://user-images.githubusercontent.com/97882448/199650456-6aee041a-4017-4143-b85b-7ba719433283.png">
-
-* 추가로 여기서 사용한 것은 rbf인데 커널이 여러가지가 있어 몇개만 더 살펴보려고함
-         
 
 ---
  ### Reference
