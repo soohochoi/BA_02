@@ -281,9 +281,10 @@ plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
      * gamma값이 10라 선형보단 비선형으로 분류됨
         <p align="center"><img width="380" alt="image" src="https://user-images.githubusercontent.com/97882448/199650456-6aee041a-4017-4143-b85b-7ba719433283.png">
 
+* 추가로 여기서 사용한 것은 rbf인데 커널이 여러가지가 있어 몇개만 더 살펴보려고함
          
 
 ---
  ### Reference
  1. https://sustaining-starflower-aff.notion.site/2022-2-0e068bff3023401fa9fa13e96c0269d7 <강필성교수님 자료>
- 2. Jake VanderPlas [Python Data Science Handbook] 
+ 2. Jake VanderPlas [Python Data Science Handbook]<문헌 참고>
