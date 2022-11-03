@@ -277,4 +277,7 @@ plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
   * ****C값이 1이고 gamma값이 100일때**
         <p align="center"><img width="380" alt="image" src="https://user-images.githubusercontent.com/97882448/199650456-6aee041a-4017-4143-b85b-7ba719433283.png">
 
-  * ****C값이 1이고 gamma값이 100일때**
+---
+ ### Reference
+ 1. https://sustaining-starflower-aff.notion.site/2022-2-0e068bff3023401fa9fa13e96c0269d7 <강필성교수님 자료>
+ 2. https://github.com/2black0/ <GA코드 참조>
